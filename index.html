@@ -47,29 +47,54 @@
 												<input type="text" name="Spielername" id="Spielername" value="" placeholder="Spielername" />
 											</div>
 											<div class="field half">
-												<input type="text" name="code" id="code" value="" placeholder="Code" />
+												<input type="number" name="Übungsbonus" id="Übungsbonus" value="" placeholder="Übungsbonus" />
 											</div>
 											<div class="field">
 												<textarea name="Beschreibung" id="Beschreibung" placeholder="Beschreibung" rows="3"></textarea>
 											</div>
 											<div class="field">
-												<label for="Volk">Volk</label>
-												<select name="Volk" id="Volk">
-													<option value="">-</option>
-													<option value="1">Mensch</option>
-													<option value="1">Hügelzwerg</option>
-													<option value="1">Leichtfuß-Halbling</option>
-													<option value="1">Hochelf</option>
+												<label for="Klasse">Klasse & Stufe</label>
+												<select name="Klasse" id="Klasse" onchange="Selected('Klasse')">
+
 												</select>
 											</div>
-											<div class="field">
-												<label for="K&S">Klasse & Stufe</label>
-												<select name="K&S" id="K&S">
+											<div class="field half">
+												<label for="Volk">Volk</label>
+												<select name="Volk" id="Volk" onchange="Selected('Volk')">
+													
+												</select>
+											</div>
+											<div class="field half">
+												<label for="Unterart">Unterart</label>
+												<select name="Unterart" id="Unterart">
+													
+												</select>
+											</div>
+											<div class="field half">
+												<label for="Gesinnung">Gesinnung</label>
+												<select name="Gesinnung" id="Gesinnung">
 													<option value="">-</option>
-													<option value="1">Magier</option>
-													<option value="1">Kämpfer</option>
-													<option value="1">Kleriker</option>
-													<option value="1">Schurke</option>
+													<optgroup id="Rechtschaffen" value="Rechtschaffen" label="Rechtschaffen">
+														<option value="RG">Rechtschaffen gut</option>
+														<option value="RN">Rechtschaffen neutral</option>
+														<option value="RB">Rechtschaffen böse</option>
+													</optgroup>
+													<optgroup id="Neutral" value="Neutral" label="Neutral">
+														<option value="RG">Neutral gut</option>
+														<option value="RN">Neutral</option>
+														<option value="RB">Neutral böse</option>
+													</optgroup>
+													<optgroup id="Chaotisch" value="Chaotisch" label="Chaotisch">
+														<option value="RG">Chaotisch gut</option>
+														<option value="RN">Chaotisch neutral</option>
+														<option value="RB">Chaotisch böse</option>
+													</optgroup>
+												</select>
+											</div>
+											<div class="field half">
+												<label for="Hintergrund">Hintergrund</label>
+												<select name="Hintergrund" id="Hintergrund">
+													
 												</select>
 											</div>																					
 										</div>
@@ -144,7 +169,7 @@
 									</div>
 									<ul class="actions">
 										<li><a href="#Erstellung3" class="button primary">Weiter</a></li>
-										<li><input type="reset" value="Zurücksetzen"></li>
+										<li><a href="#Erstellung1" class="button">Zurück</a></li>
 									</ul>
 								</form>
 							</section>
@@ -165,11 +190,11 @@
 										</div>
 								<!--Arkane Kunde-->
 										<div class="field half">
-												<input type="checkbox" id="animProf">
-												<label for="animProf">Arkane Kunde:</label>
+												<input type="checkbox" id="arcaProf">
+												<label for="arcaProf">Arkane Kunde:</label>
 										</div>	
 										<div class="field half">
-											<input type="number" id="animScore">
+											<input type="number" id="arcaScore">
 										</div>
 								<!--Athletik-->
 										<div class="field half">
@@ -179,18 +204,130 @@
 										<div class="field half">
 											<input type="number" id="athlScore">
 										</div>	
-								<!--Athletik-->
+								<!--Auftreten-->
 										<div class="field half">
-												<input type="checkbox" id="arcaProf">
-												<label for="arcaProf">Athletik:</label>
+												<input type="checkbox" id="perfProf">
+												<label for="perfProf">Auftreten:</label>
 										</div>	
 										<div class="field half">
-											<input type="number" id="arcaScore">
-										</div>																		
+											<input type="number" id="perfScore">
+										</div>	
+								<!--Einschüchtern-->
+										<div class="field half">
+												<input type="checkbox" id="intiProf">
+												<label for="intiProf">Einschüchtern:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="intiScore">
+										</div>	
+								<!--Fingerfertigkeit-->
+										<div class="field half">
+												<input type="checkbox" id="sleiProf">
+												<label for="sleiProf">Fingerfertigkeit:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="sleicore">
+										</div>	
+								<!--Geschichte-->
+										<div class="field half">
+												<input type="checkbox" id="hisProf">
+												<label for="hisProf">Geschichte:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="hisScore">
+										</div>	
+								<!--Heilkunde-->
+										<div class="field half">
+												<input type="checkbox" id="medProf">
+												<label for="medProf">Heilkunde:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="medScore">
+										</div>	
+								<!--Heimlichkeit-->
+										<div class="field half">
+												<input type="checkbox" id="steProf">
+												<label for="steProf">Heimlichkeit:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="steScore">
+										</div>	
+								<!--Mit Tieren umgehen-->
+										<div class="field half">
+												<input type="checkbox" id="animProf">
+												<label for="animProf">Mit Tieren umgehen:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="animScore">
+										</div>	
+								<!--Motiv erkennen-->
+										<div class="field half">
+												<input type="checkbox" id="insProf">
+												<label for="insProf">Motiv erkennen:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="insScore">
+										</div>	
+								<!--Nachforschung-->
+										<div class="field half">
+												<input type="checkbox" id="invProf">
+												<label for="invProf">Nachforschung:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="invScore">
+										</div>	
+								<!--Naturkunde-->
+										<div class="field half">
+												<input type="checkbox" id="natProf">
+												<label for="natProf">Naturkunde:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="natScore">
+										</div>	
+								<!--Religion-->
+										<div class="field half">
+												<input type="checkbox" id="relProf">
+												<label for="relProf">Religion:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="relScore">
+										</div>	
+								<!--Täuschen-->
+										<div class="field half">
+												<input type="checkbox" id="decProf">
+												<label for="decProf">Täuschen:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="decScore">
+										</div>	
+								<!--Überzeugen-->
+										<div class="field half">
+												<input type="checkbox" id="persProf">
+												<label for="persProf">Überzeugen:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="persScore">
+										</div>	
+								<!--Überlebungskunst-->
+										<div class="field half">
+												<input type="checkbox" id="survProf">
+												<label for="survProf">Überlebungskunst:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="survScore">
+										</div>	
+								<!--Wahrnehmung-->
+										<div class="field half">
+												<input type="checkbox" id="percProf">
+												<label for="percProf">Wahrnehmung:</label>
+										</div>	
+										<div class="field half">
+											<input type="number" id="percScore">
+										</div>																																								
 									</div>
 									<ul class="actions">
 										<li><a href="#Erstellung4" class="button primary">Weiter</a></li>
-										<li><input type="reset" value="Zurücksetzen"></li>
+										<li><a href="#Erstellung2" class="button">Zurück</a></li>
 									</ul>
 								</form>
 							</section>
@@ -493,6 +630,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/Charakter_Creation/Creation_1.js"></script>
+			<script src="assets/Charakter_Creation/test.js"></script>
+			
 
 	</body>
 </html>
